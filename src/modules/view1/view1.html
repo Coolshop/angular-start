@@ -1,1 +1,14 @@
 <p>This is the partial for view 1</p>
+
+<p>{{'view1.currentDate'|localizzazione}} {{currentDate|date:'dd-MM-yyyy'}}</p>
+
+<input name="searchName" placeholder="name" ng-model="searchText.name" />
+
+<input name="searchSurname" placeholder="surname" ng-model="searchText.surname" />
+
+<ul>
+	<li ng-repeat="item in list|filter:searchText">
+		<span>{{item.name}}</span>
+		<span>{{item.surname}}</span>
+	</li>
+</ul>
