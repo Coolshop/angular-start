@@ -2,10 +2,16 @@
 
 <p>{{'view1.currentDate'|localizzazione}} {{currentDate|date:'dd-MM-yyyy'}}</p>
 
-<input name="searchName" placeholder="name" ng-model="searchText.name" />
-
-<input name="searchSurname" placeholder="surname" ng-model="searchText.surname" />
-
+<form name="mioForm">
+	<input name="searchName" placeholder="name" ng-model="searchText.name" ng-required="true" ng-minlength="4"/>
+	<span ng-show="mioForm.searchName.$error.required">
+		Required
+	</span>
+	<span ng-show="mioForm.searchName.$error.minlength">
+		Lunghezza minima
+	</span>
+	<input name="searchSurname" placeholder="surname" ng-model="searchText.surname" ng-required="true"/>
+</form>
 <ul>
 	<li ng-repeat="item in list|filter:searchText">
 		<span>{{item.name}}</span>
