@@ -1,20 +1,22 @@
-<p>This is the partial for view 1</p>
-
-<p>{{'view1.currentDate'|localizzazione}} {{currentDate|date:'dd-MM-yyyy'}}</p>
-
-<form name="mioForm">
-	<input name="searchName" placeholder="name" ng-model="searchText.name" ng-required="true" ng-minlength="4"/>
-	<span ng-show="mioForm.searchName.$error.required">
-		Required
-	</span>
-	<span ng-show="mioForm.searchName.$error.minlength">
-		Lunghezza minima
-	</span>
-	<input name="searchSurname" placeholder="surname" ng-model="searchText.surname" ng-required="true"/>
-</form>
-<ul>
-	<li ng-repeat="item in list|filter:searchText">
-		<span>{{item.name}}</span>
-		<span>{{item.surname}}</span>
-	</li>
-</ul>
+<div ng-hide="userData">
+	<h3>Login</h3>
+	<form ng-submit="login()">
+		<p>
+			<input placeholder="Username" type="text" name="username" ng-model="username"/>
+		</p>
+		<p>
+			<input placeholder="Password" type="password" name="password" ng-model="password"/>
+		</p>
+		<p><input type="submit" value="Login" /></p>
+	</form>
+</div>
+<div ng-show="userData">
+	Ciao {{userData.name}} {{userData.surname}}
+</div>
+<!--
+<div ng-repeat="table in tables">
+	<h3>{{table.title}}</h3>
+	<my-custom-directive datasource="table.source"></my-custom-directive>
+</div>
+-->
+<br/>
