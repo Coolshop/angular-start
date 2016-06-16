@@ -1,0 +1,12 @@
+<div id="directiveWrapper">
+	<table>
+		<tr>
+			<th ng-repeat="cel in header">
+				<input name="{{cel}}" type="text" ng-model="search[cel]" placeholder="{{cel}}"/>
+			</th>
+		</tr>
+		<tr ng-repeat="row in dataSource|filter:search">
+			<td ng-repeat="cel in header">{{row[cel]}}</td>
+		<tr>
+	</table>
+</div>
