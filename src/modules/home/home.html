@@ -1,3 +1,14 @@
 <p>This is the home page</p>
-<p>
-</p>
+<form name="loginForm" ng-submit="login()" ng-hide="loginStatus">
+	<label>Username</label>
+	<input type="text" name="username" ng-model="user.username"/>
+	
+	<label>Password</label>
+	<input type="password" name="passowrd" ng-model="user.password"/>
+	<input type='submit' value="Login">
+</form>
+
+<div ng-show="loginStatus">
+	Benvenuto {{user.username}}
+</div>
+

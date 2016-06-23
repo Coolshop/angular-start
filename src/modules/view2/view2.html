@@ -1,5 +1,10 @@
-<p>This is the partial for view 2.</p>
+<p>Questo è un contenuto privato</p>
 <p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
+  Hai scoperto il segreto {{user.username}}!!!!!
+
+  <ul>
+	  <li ng-repeat="item in list">
+	  	{{item|json}}
+	  </li>
+  </ul>
 </p>

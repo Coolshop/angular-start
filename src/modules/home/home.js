@@ -9,17 +9,15 @@ angular.module('myApp.home', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', ["$http",function($http) {
-  $http({
-    method: 'GET',
-    url: "http://fakebk.staging.coolshop.it/login.php",
-    params:{
-      "username":"ale",
-      "password":""
-    }
-  }).then(function successCallback(response) {
-    alert("OK");
-  }, function errorCallback(response) {
-    alert("AJAX ERROR");
-  });
+.controller('HomeCtrl', ["auth", "$scope",function(auth, $scope) {
+  $scope.user = auth.getUser() || {};
+  $scope.loginStatus = auth.isLoggedIn();
+  
+  $scope.login = function(){
+    var loginPromise = auth.login($scope.user.username, $scope.user.password);
+
+    loginPromise.then(function successLogin(user){
+        $scope.loginStatus = true;
+    });
+  }
 }]);
