@@ -2,7 +2,7 @@
 
 angular.module('myApp.view2', ['ngRoute', 'myApp.dataManager','myApp.auth', 'ngResource'])
 
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', 'authProvider', function($routeProvider, authProvider) {
   $routeProvider.when('/view2', {
     templateUrl: 'modules/view2/view2.html',
     controller: 'View2Ctrl',
